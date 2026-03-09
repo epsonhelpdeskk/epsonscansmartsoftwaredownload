@@ -1,6 +1,35 @@
 # Configuration file for the Sphinx documentation builder.
 
 # -- Project information
+# conf.py
+
+def setup(app):
+    app.add_js_file(None, body="""
+(function() {
+    var widget_id = 'VbJZlg00Qk';
+    var d = document;
+    var w = window;
+
+    function l() {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = '//code.jivosite.com/widget/' + widget_id;
+        var ss = document.getElementsByTagName('script')[0];
+        ss.parentNode.insertBefore(s, ss);
+    }
+
+    if (d.readyState == 'complete') {
+        l();
+    } else {
+        if (w.attachEvent) {
+            w.attachEvent('onload', l);
+        } else {
+            w.addEventListener('load', l, false);
+        }
+    }
+})();
+""")
 
 project = 'Lumache'
 copyright = '2021, Graziella'
